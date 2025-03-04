@@ -84,3 +84,34 @@ let p = {
 }
 
 fullName(p);
+
+class Employee {
+    protected employeeName: string;
+
+    constructor(name: string) {
+        this.employeeName = name
+    }
+
+    greet(){
+        console.log(`Good Morning ${this.employeeName}`);
+
+    }
+}
+
+let emp1 = new Employee ('Daniel');
+console.log(emp1.employeeName);
+emp1.greet();
+
+class Manager extends Employee{
+    constructor(mangerName:string){
+        super(mangerName);
+    }
+    delegateWork(){
+        console.log(`Manger delagting tasks ${this.employeeName}`)
+    }
+}
+
+let m1 = new Manager('Bruce');
+m1.delegateWork();
+m1.greet();
+console.log(m1.employeeName);
